@@ -1,0 +1,19 @@
+default:
+    calls:
+        error_reporting: 16383 # E_ALL & ~E_USER_DREPRECATED
+    formatters:
+        pretty: true
+    suites:
+        default:
+            contexts:
+                - FeatureContext:
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                env: 'test'
+                debug: 'true'
+        Behat\MinkExtension:
+            base_url: http://php/
+            sessions:
+                default:
+                    symfony2: ~

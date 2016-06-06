@@ -1,0 +1,10 @@
+version: '2'
+services:
+  php:
+    image: mykiwi/symfony-base
+    working_dir: /srv
+    command: app/console server:run 0.0.0.0:80
+    volumes:
+      - .:/srv
+      - /srv/app/cache
+      - /srv/app/logs
