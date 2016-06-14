@@ -29,6 +29,10 @@
 
     <body id="{% block body_id %}{% endblock %}">
 
+        {% for cookie, value in app.request.cookies.all %}
+            cookie "{{cookie}}": "{{value}}"
+        {% endfor %}
+
         {% block header %}
             <header>
                 <div class="navbar navbar-default navbar-static-top" role="navigation">

@@ -28,4 +28,5 @@ Feature: Admin
     Scenario: Access to the backoffice
         Given I am logged in as "anna_admin"
         And I go to "/en/admin/post/"
+        And print last response
         Then I should see "Post List"

@@ -30,13 +30,18 @@ class FeatureContext extends MinkContext implements KernelAwareContext
             $client = $driver->getClient();
             $cookie = new Cookie($session->getName(), $session->getId());
             $client->getCookieJar()->set($cookie);
-        } else if($driver instanceof Selenium2Driver) {
+        } else if ($driver instanceof Selenium2Driver) {
+            var_dump($driver->getWebDriverSession()->getAllCookies());
             $this->visitPath('/');
         } else {
             throw new \Exception('Unsupported Driver');
         }
 
         $this->getSession()->setCookie($session->getName(), $session->getId());
+
+        if ($driver instanceof Selenium2Driver) {
+            var_dump($driver->getWebDriverSession()->getAllCookies());
+        }
     }
 
     /**
