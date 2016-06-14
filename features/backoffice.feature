@@ -24,7 +24,7 @@ Feature: Admin
         And I press "Sign in"
         Then I should see "Post List"
 
-    @javascript
+    @javascript @insulated
     Scenario: Access to the backoffice
         Given I am logged in as "anna_admin"
         And I go to "/en/admin/post/"
